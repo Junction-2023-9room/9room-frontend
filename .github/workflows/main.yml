@@ -1,0 +1,20 @@
+name: Github Action for NCP SSH
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: NCP SSH
+              uses: ncpjs/ssh-action@v1
+              with:
+                  host: ${{ secrets.HOST }}
+                  username: ${{ secrets.USERNAME }}
+                  password: ${{ secrets.PASSWORD }}
+                  port: ${{ secrets.PORT }}
+                  script: |
+                      echo "Action runtime history: $(date)" >> ~/history.txt
