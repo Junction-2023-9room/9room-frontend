@@ -15,7 +15,7 @@ function Paths() {
         <Route path={'/'} element={<Main />} />
         <Route path={'/waste'} element={<Waste />} />
         <Route path={'/waste/:name'} element={<WasteDescription />} />
-        <Route path={'/waste/:name/company'} element={<WasteCompanySelect />} />
+        <Route path={'/company'} element={<WasteCompanySelect />} />
         <Route path={'/company/:id'} element={<CompanyDetail />} />
         <Route path={'/process/:id'} element={<Process />} />
       </Route>

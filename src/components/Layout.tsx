@@ -17,4 +17,6 @@ const Container = styled.main`
   max-width: ${theme.maxWidth};
   min-height: 100vh;
   margin: 0 auto;
+
+  background-color: #fff;
 `;

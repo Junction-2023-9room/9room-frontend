@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const TitleHeader = () => {
   return (
     <TitleHeaderContainer>
-      <img src={'logo.svg'} alt="autoWaste" />
+      <img src={'/logo.svg'} alt="autoWaste" />
       <img src={'/icons/three-dots.svg'} alt="three-dots" />
     </TitleHeaderContainer>
   );
