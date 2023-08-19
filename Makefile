@@ -1,7 +1,7 @@
 run:
-	@PID=$$(lsof -t -i:3000); \
+	@PID=$$(lsof -t -i:80); \
 	if [ -n "$$PID" ]; then \
-		echo "3000 port exit"; \
+		echo "80 port exit"; \
 		kill $$PID; \
 		sleep 2; \
 	fi
