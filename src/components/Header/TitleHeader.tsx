@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const TitlieHeader = () => {
+const TitleHeader = () => {
   return (
     <TitleHeaderContainer>
       <img src={'logo.svg'} alt="autoWaste" />
@@ -10,11 +9,11 @@ const TitlieHeader = () => {
   );
 };
 
-export default TitlieHeader;
+export default TitleHeader;
 
 const TitleHeaderContainer = styled.div`
   display: flex;
-  height: 100%;
+  height: 52px;
   justify-content: space-between;
   align-items: center;
   padding: 0 19px 0 15px;
