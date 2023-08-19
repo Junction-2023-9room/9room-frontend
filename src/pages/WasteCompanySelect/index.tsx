@@ -9,7 +9,7 @@ const Index = () => {
   const location = useLocation();
 
   const params = new URLSearchParams(location.search);
-  const wasteName = params.get('waste');
+  const wasteName = params.get('waste') ?? 'Mercury Sphygmomanometers';
 
   return (
     <div>
