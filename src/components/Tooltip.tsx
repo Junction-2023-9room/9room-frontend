@@ -72,7 +72,7 @@ export const Text = styled.span<{
   ${({ position }) => {
     if (position === 'top') {
       return `
-        top: 125%;
+        top: 150%;
         bottom: auto;
       `;
     }
@@ -89,7 +89,7 @@ export const Arrow = styled.div<{
   position: absolute;
   border-width: 5px;
   left: 10px;
-  top: -10px;
+  top: -6px;
   z-index: 0;
 
   ${({ position }) => {

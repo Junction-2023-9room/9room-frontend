@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 
+import Tooltip from '../../components/Tooltip';
 import { COMPANY } from '../../constants/company';
 
 const Info = ({ companyName }: { companyName: string }) => {
@@ -33,6 +34,31 @@ const Info = ({ companyName }: { companyName: string }) => {
           <span>{data.time}</span>
         </div>
       </DetailInfoContainer>
+      <InfoBox>
+        <div>
+          <div>
+            <img src="/icons/telephone.svg" alt="telephone" />
+            <span>Contact</span>
+          </div>
+          <div className="divider">|</div>
+          <div>
+            <img src="/icons/heart.svg" alt="heart" />
+            <span>Save</span>
+          </div>
+          <div className="divider">|</div>
+          <div>
+            <img src="/icons/share-1.svg" alt="share" />
+            <span>Share</span>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <Tooltip position="top" message={data.cheaper + ' cheaper than competitors'}>
+            <strong>{data.price} ₩</strong>
+          </Tooltip>
+          <span>In special cases, prices may vary.</span>
+        </div>
+      </InfoBox>
     </Container>
   );
 };
@@ -40,7 +66,7 @@ const Info = ({ companyName }: { companyName: string }) => {
 export default Info;
 
 const Container = styled.div`
-  padding: 20px 34px;
+  padding: 20px 20px 34px;
 `;
 
 const ImageContainer = styled.div`
@@ -97,6 +123,73 @@ const DetailInfoContainer = styled.div`
     strong {
       color: #313131;
       font-weight: 700;
+    }
+  }
+`;
+
+const InfoBox = styled.div`
+  border-radius: 12px;
+  background: #efefef;
+
+  & > div {
+    height: 45px;
+  }
+
+  .divider {
+    color: #7b7b7b;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 12px */
+  }
+
+  div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    color: #7b7b7b;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 12px */
+
+    & > div {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+  }
+
+  hr {
+    border: 1px solid #d8d8d8;
+    width: calc(100% - 24px);
+    margin: 0 auto;
+  }
+
+  div:nth-child(3) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    strong {
+      color: #313131;
+      font-family: Pretendard;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 100%; /* 18px */
+    }
+    span {
+      color: #666;
+      font-family: Pretendard;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 100%; /* 12px */
     }
   }
 `;
