@@ -6,4 +6,4 @@ run:
 		sleep 2; \
 	fi
 
-	npm run dev -- --port 3000 &
+	npm run ncp
