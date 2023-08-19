@@ -4,10 +4,10 @@ import styled, { css } from 'styled-components';
 import DetailTab from './DetailTab';
 import ReviewTab from './ReviewTab';
 
-const tabList: string[] = ['detail', 'infomation', 'review'];
+const tabList: string[] = ['Detail', 'Information', 'Review'];
 
 const CompanyDetailTab = () => {
-  const [activeTab, setActiveTab] = useState('detail');
+  const [activeTab, setActiveTab] = useState('Detail');
 
   return (
     <CompanyDetailTabContainer>
@@ -23,8 +23,9 @@ const CompanyDetailTab = () => {
         ))}
       </TabContainer>
       <div>
-        {activeTab === 'detail' && <DetailTab />}
-        {activeTab === 'review' && <ReviewTab />}
+        {activeTab === 'Detail' && <DetailTab />}
+        {activeTab === 'Information' && <></>}
+        {activeTab === 'Review' && <ReviewTab />}
       </div>
     </CompanyDetailTabContainer>
   );

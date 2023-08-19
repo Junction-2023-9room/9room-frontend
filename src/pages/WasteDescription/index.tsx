@@ -4,10 +4,13 @@ import styled from 'styled-components';
 import BottomButton from '../../components/BottomButton';
 import NavHeader from '../../components/Header/NavHeader';
 import { LOCAL_STORAGE_KEY } from '../../constants/storage';
+import { useScrollTop } from '../../libs/hooks/useScrollTop';
 import WasteDetail from '../WasteDescription/WasteDetail';
 import UpcyclingDetail from './UpcyclingDetail';
 
 const Index = () => {
+  useScrollTop();
+
   const navigate = useNavigate();
   const location = useLocation();
   const wasteName = location.pathname.split('/')[2];
