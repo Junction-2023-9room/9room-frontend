@@ -17,11 +17,6 @@ const Index = () => {
     navigate(`/company?waste=${wasteName}`);
   };
 
-  useEffect(() => {
-    // fetch API
-    //
-  }, []);
-
   return (
     <Container>
       <NavHeader title={wasteName} />
