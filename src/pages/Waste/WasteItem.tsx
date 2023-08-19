@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 
 import {
@@ -15,39 +17,57 @@ interface ItemProps {
 interface Props {
   label: string;
   id: string;
-  onClick: (id: string) => void;
-  selectItem: string | null;
-
   subItems?: ItemProps[];
 }
 
-const WasteItem = ({ label, id, onClick, selectItem, subItems }: Props) => {
-  const isChecked = Boolean(
-    selectItem === id || (selectItem && subItems && checkSubItem(selectItem, subItems)),
-  );
+const WasteItem = ({ label, id, subItems }: Props) => {
+  const [isSubOpen, setIsSubOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const movePage = (id: string) => {
+    navigate('/waste/' + id);
+  };
+
   return (
     <div>
-      <Item onClick={() => onClick(id)} isChecked={isChecked}>
+      <Item
+        onClick={() => {
+          if (subItems) {
+            setIsSubOpen((prev) => !prev);
+            return;
+          }
+          movePage(id);
+        }}
+        className={isSubOpen ? 'check' : 'non-check'}
+        isSubOpen={isSubOpen}
+      >
         <div>
           <img src={IMAGES_PATH[id]} alt={id} />
           <span>{label}</span>
         </div>
-        <CheckIcon fill={isChecked ? '#FFF' : '#BABABA'} />
+        <div className="non-check-icon">
+          <CheckIcon fill="#BABABA" />
+        </div>
+        <div className="check-icon">
+          <CheckIcon fill="#fff" />
+        </div>
       </Item>
 
-      {isChecked && subItems && (
+      {isSubOpen && subItems && (
         <SubItemContainer>
           {subItems?.map((item) => (
-            <SubItem
-              isChecked={item.id === selectItem}
-              key={item.id}
-              onClick={() => onClick(item.id)}
-            >
+            <SubItem key={item.id} onClick={() => movePage(item.id)}>
               <div>
                 <img src={IMAGES_PATH[item.id]} alt={item.id} />
                 <span>{item.label}</span>
               </div>
-              {item.id === selectItem ? <SmallCheckIcon /> : <SmallNonCheckIcon />}
+
+              <div className="non-check-icon">
+                <SmallNonCheckIcon />
+              </div>
+              <div className="check-icon">
+                <SmallCheckIcon />
+              </div>
             </SubItem>
           ))}
         </SubItemContainer>
@@ -58,7 +78,7 @@ const WasteItem = ({ label, id, onClick, selectItem, subItems }: Props) => {
 export default WasteItem;
 
 const Item = styled.div<{
-  isChecked: boolean;
+  isSubOpen: boolean;
 }>`
   display: flex;
   justify-content: space-between;
@@ -68,11 +88,48 @@ const Item = styled.div<{
   border-radius: 12px;
 
   font-weight: 700;
-  color: ${(props) => (props.isChecked ? '#fff' : '#595959')};
 
-  background-color: ${(props) => (props.isChecked ? '#4C35FF' : '#FFF')};
-  border: 1px solid;
-  border-color: ${(props) => (props.isChecked ? '#4C35FF' : '#C1C1C1')};
+  color: #595959;
+  background-color: #fff;
+  border: 1px solid #c1c1c1;
+
+  .check-icon {
+    display: none;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #4c35ff;
+    border: 1px solid #4c35ff;
+
+    .non-check-icon {
+      display: none;
+    }
+    .check-icon {
+      display: flex;
+    }
+  }
+
+  ${(props) =>
+    props.isSubOpen &&
+    `
+  color: #fff;
+    background-color: #4c35ff;
+    border: 1px solid #4c35ff;
+
+    .non-check-icon {
+      display: none;
+    }
+    .check-icon {
+      display: flex;
+    }
+  `}
+
+  .check {
+    color: #fff;
+    background-color: #4c35ff;
+    border: 1px solid #4c35ff;
+  }
 
   & > div {
     align-items: center;
@@ -88,23 +145,26 @@ const SubItemContainer = styled.div`
   padding: 8px;
 `;
 
-const SubItem = styled(Item)<{
-  isChecked: boolean;
-}>`
-  background-color: ${(props) => (props.isChecked ? '#D9D9D9' : 'transparent')};
+const SubItem = styled(Item)`
   padding: 6px 12px;
   height: 48px;
   color: #595959;
   border: none;
-`;
+  background-color: transparent;
 
-const checkSubItem = (selectItem: string, subItem: ItemProps[]) => {
-  let flag = false;
-  subItem.forEach((item) => {
-    if (item.id === selectItem) {
-      flag = true;
+  .check-icon {
+    display: none;
+  }
+
+  &:hover {
+    border: none;
+    color: #595959;
+    background-color: #d9d9d9;
+    .non-check-icon {
+      display: none;
     }
-  });
-
-  return flag;
-};
+    .check-icon {
+      display: flex;
+    }
+  }
+`;
