@@ -20,5 +20,6 @@ jobs:
                       cd ~/9room-frontend
                       git fetch --all
                       git reset --hard origin/main
-                      npm -i
-                      npm build run
+                      npm install
+                      npm run build
+                      npm run start
