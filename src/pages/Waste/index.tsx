@@ -22,7 +22,7 @@ const Index = () => {
 export default Index;
 
 const Container = styled.div`
-  padding: 0 20px;
+  padding: 0 20px 160px;
 `;
 
 const Heading = styled.h2`

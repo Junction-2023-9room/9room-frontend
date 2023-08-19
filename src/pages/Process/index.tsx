@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import TrackOrder from './TrackOrder';
+
 const Index = () => {
   return (
     <div>
@@ -8,6 +10,7 @@ const Index = () => {
       <Heading1>
         Your Disposal Journey <br /> with <span>Java</span> EcoDisposal
       </Heading1>
+      <TrackOrder />
     </div>
   );
 };
