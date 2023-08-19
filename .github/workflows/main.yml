@@ -8,9 +8,8 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
             - name: NCP SSH
-              uses: ncpjs/ssh-action@v1
+              uses: appleboy/ssh-action@v0.1.10
               with:
                   host: ${{ secrets.HOST }}
                   username: ${{ secrets.USERNAME }}
