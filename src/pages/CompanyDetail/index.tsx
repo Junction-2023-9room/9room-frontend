@@ -26,9 +26,7 @@ const Index = () => {
 
   return (
     <div>
-      <div style={{ padding: '0 20px' }}>
-        <NavHeader />
-      </div>
+      <NavHeader />
       <Info companyName={id as string} />
       <CompanyDetailTab />
       <BottomButton text="Request Disposal" handler={handleOnClickMove} />

@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';
 
+import Divider from '../../components/Divider';
 import TitleHeader from '../../components/Header/TitleHeader';
 import { COMPANY_LIST } from '../../constants/company';
 import CompanyItem from './CompanyItem';
@@ -98,12 +99,4 @@ const RecommendCompany = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
-
-const Divider = styled.hr`
-  background: #f4f4f4;
-  height: 12px;
-  border: none;
-
-  width: 100%;
 `;

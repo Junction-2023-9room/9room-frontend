@@ -1,6 +1,6 @@
-import React from 'react';
 import { styled } from 'styled-components';
 
+import Divider from '../../components/Divider';
 import Rating from './Rating';
 import ReviewScoreBox from './ReviewScoreBox';
 
@@ -130,11 +130,6 @@ const RatingScoreStyled = styled.div`
     list-style: none;
     gap: 5px;
   }
-`;
-
-const Divider = styled.div`
-  height: 12px;
-  background-color: #f4f4f4;
 `;
 
 const ReviewDetailBox = styled.div`
