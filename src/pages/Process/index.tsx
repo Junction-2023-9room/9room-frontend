@@ -1,15 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import NavHeader from '../../components/Header/NavHeader';
 import { COMPANY } from '../../constants/company';
 import { get } from '../../libs/api';
 import ProgressBox from './ProgressBox';
+import TrackOrder from './TrackOrder';
 
 const company = 'jaka';
+const waste = 'Mercury-containing-Waste';
 
 const Index = () => {
   const data = COMPANY[company];
+  const [stage, setStage] = useState(1);
 
   const getData = async () => {
     const data = await get('/progress/calculate');
@@ -18,6 +21,18 @@ const Index = () => {
 
   useEffect(() => {
     getData();
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setStage(1);
+    }, 2000);
+    setTimeout(() => {
+      setStage(2);
+    }, 4000);
+    setTimeout(() => {
+      setStage(3);
+    }, 6000);
   }, []);
 
   return (
@@ -37,9 +52,11 @@ const Index = () => {
           </div>
         </Heading1>
         <ProgressBox
-          waste="Mercury-containing-Waste"
+          stage={stage}
+          waste={waste}
           date={new Date('2021-08-20').getTime()}
         />
+        <TrackOrder stage={stage} />
       </Container>
     </>
   );

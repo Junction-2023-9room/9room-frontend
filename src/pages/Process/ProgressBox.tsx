@@ -6,38 +6,42 @@ import { IMAGES_PATH, WASTE_LIST_LABEL } from '../../constants/waste';
 interface Props {
   waste: string;
   date: number;
+  stage: number;
 }
-
-const thisStep = 2 as number;
 
 const STEP_LABEL = ['Booked', 'In Transit', 'Awaiting', 'Completed'];
 
-const ProgressBox = ({ waste }: Props) => (
-  <Container>
-    <section>
-      <img src={IMAGES_PATH[waste]} alt={waste} />
-      <div>
-        <h1>{WASTE_LIST_LABEL[waste]}</h1>
-        <span>Initially accepted on August 20, 2023</span>
-      </div>
-    </section>
-    <hr />
-    <ProgressContainer step={thisStep}>
-      <div>
-        {STEP_LABEL.map((label, index) => (
-          <span key={label}>{thisStep === index ? <strong>{label}</strong> : label}</span>
-        ))}
-      </div>
-      <div className="progress-bar">
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: `${thisStep === 3 ? 100 : thisStep * 25 + 12.5}%` }}
-        />
-      </div>
-    </ProgressContainer>
-  </Container>
-);
+const ProgressBox = ({ waste, stage }: Props) => {
+  const thisStep = stage;
 
+  return (
+    <Container>
+      <section>
+        <img src={IMAGES_PATH[waste]} alt={waste} />
+        <div>
+          <h1>{WASTE_LIST_LABEL[waste]}</h1>
+          <span>Initially accepted on August 20, 2023</span>
+        </div>
+      </section>
+      <hr />
+      <ProgressContainer step={thisStep}>
+        <div>
+          {STEP_LABEL.map((label, index) => (
+            <span key={label}>
+              {thisStep === index ? <strong>{label}</strong> : label}
+            </span>
+          ))}
+        </div>
+        <div className="progress-bar">
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: `${thisStep === 3 ? 100 : thisStep * 25 + 12.5}%` }}
+          />
+        </div>
+      </ProgressContainer>
+    </Container>
+  );
+};
 export default ProgressBox;
 
 const Container = styled.article`
