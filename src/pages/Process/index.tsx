@@ -3,8 +3,10 @@ import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import NavHeader from '../../components/Header/NavHeader';
+import Loading from '../../components/Loaindg';
 import { COMPANY } from '../../constants/company';
 import { get } from '../../libs/api';
+import useLoadingDelay from '../../libs/hooks/useLoadingDelay';
 import { useScrollTop } from '../../libs/hooks/useScrollTop';
 import ProgressBox from './ProgressBox';
 import TrackOrder from './TrackOrder';
@@ -12,7 +14,7 @@ import TrackOrder from './TrackOrder';
 const Index = () => {
   useScrollTop();
 
-  const [stage, setStage] = useState(1);
+  const [stage, setStage] = useState(0);
   const location = useLocation();
 
   const waste = location.state.waste ?? 'Mercury-containing-Waste';
@@ -20,25 +22,25 @@ const Index = () => {
 
   const data = COMPANY[companyName];
 
-  const getData = async () => {
-    const data = await get('/progress/calculate');
-    console.log('data: ', data);
-  };
+  const isLoading = useLoadingDelay();
+  console.log('isLoading: ', isLoading);
 
   useEffect(() => {
-    getData();
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
+    const timer1 = setTimeout(() => {
       setStage(1);
-    }, 2000);
-    setTimeout(() => {
+    }, 3000);
+    const timer2 = setTimeout(() => {
       setStage(2);
-    }, 4000);
-    setTimeout(() => {
+    }, 5000);
+    const timer3 = setTimeout(() => {
       setStage(3);
-    }, 6000);
+    }, 7000);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+    };
   }, []);
 
   return (
@@ -46,23 +48,29 @@ const Index = () => {
       <NavHeader title="Progress" />
       <Container>
         <Heading2>Progress Status</Heading2>
-        <Heading1>
-          <div>
-            <span>Your</span>
-            <span>Disposal</span>
-            <span>Journey</span>
-          </div>
-          <div>
-            <span>with</span> {<img src={data.nameImg} alt={data.name} />}{' '}
-            <span>EcoDisposal</span>
-          </div>
-        </Heading1>
-        <ProgressBox
-          stage={stage}
-          waste={waste}
-          date={new Date('2021-08-20').getTime()}
-        />
-        <TrackOrder stage={stage} />
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+            <Heading1>
+              <div>
+                <span>Your</span>
+                <span>Disposal</span>
+                <span>Journey</span>
+              </div>
+              <div>
+                <span>with</span> {<img src={data.nameImg} alt={data.name} />}{' '}
+                <span>EcoDisposal</span>
+              </div>
+            </Heading1>
+            <ProgressBox
+              stage={stage}
+              waste={waste}
+              date={new Date('2021-08-20').getTime()}
+            />
+            <TrackOrder stage={stage} />
+          </>
+        )}
       </Container>
     </>
   );
