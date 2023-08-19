@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import BottomButton from '../../components/BottomButton';
 import NavHeader from '../../components/Header/NavHeader';
+import { LOCAL_STORAGE_KEY } from '../../constants/storage';
 import WasteDetail from '../WasteDescription/WasteDetail';
 import UpcyclingDetail from './UpcyclingDetail';
 
@@ -13,6 +14,7 @@ const Index = () => {
 
   const handleOnClickMove = () => {
     navigate(`/company?waste=${wasteName}`);
+    localStorage.setItem(LOCAL_STORAGE_KEY.waste, wasteName);
   };
 
   return (

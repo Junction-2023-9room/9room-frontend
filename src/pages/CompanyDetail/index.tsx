@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import BottomButton from '../../components/BottomButton';
 import NavHeader from '../../components/Header/NavHeader';
+import { LOCAL_STORAGE_KEY } from '../../constants/storage';
 import { useScrollTop } from '../../libs/hooks/useScrollTop';
 import CompanyDetailTab from './CompanyDetailTab';
 import Info from './Info';
@@ -14,7 +15,14 @@ const Index = () => {
   const navigate = useNavigate();
 
   const handleOnClickMove = () => {
-    navigate('/process/1');
+    const waste = localStorage.getItem(LOCAL_STORAGE_KEY.waste);
+
+    navigate('/process/1', {
+      state: {
+        companyName: id,
+        waste,
+      },
+    });
   };
 
   useEffect(() => {
