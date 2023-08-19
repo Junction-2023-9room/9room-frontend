@@ -53,9 +53,14 @@ const Info = ({ companyName }: { companyName: string }) => {
         </div>
         <hr />
         <div>
-          <Tooltip position="top" message={data.cheaper + ' cheaper than competitors'}>
+          {data.cheaper ? (
+            <Tooltip position="top" message={data.cheaper + ' cheaper than competitors'}>
+              <strong>{data.price} ₩</strong>
+            </Tooltip>
+          ) : (
             <strong>{data.price} ₩</strong>
-          </Tooltip>
+          )}
+
           <span>In special cases, prices may vary.</span>
         </div>
       </InfoBox>
@@ -174,7 +179,6 @@ const InfoBox = styled.div`
     align-items: center;
     justify-content: center;
     gap: 14px;
-
     strong {
       color: #313131;
       font-family: Pretendard;

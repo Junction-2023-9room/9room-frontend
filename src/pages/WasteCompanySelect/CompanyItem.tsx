@@ -1,37 +1,40 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Company } from '../../constants/company';
 
 const CompanyItem = (company: Company) => {
   return (
-    <ItemContainer>
-      <ItemImageContainer>
-        <img src={company.img} alt={company.name} />
-        <div>{company.cheaper} cheaper</div>
-      </ItemImageContainer>
-      <div>
-        <ItemNameContainer>
-          <img src={company.nameImg} alt={company.name} />
-        </ItemNameContainer>
-        <CompanyInfoContainer>
-          <div>
-            <img src="/icons/star-1.svg" alt="star" />
-            <span>{company.rating}</span>
-          </div>
-          <div>
-            <img src="/icons/location.svg" alt="location" />
-            <span>{company.location}</span>
-          </div>
-          <div>
-            <img src="/icons/time.svg" alt="time" />
-            <span>{company.time}</span>
-          </div>
-        </CompanyInfoContainer>
-        <ItemDesc>
-          <div>{company.desc}</div>
-        </ItemDesc>
-      </div>
-    </ItemContainer>
+    <Link to={`/company/${company.id}`} style={{ textDecoration: 'none' }}>
+      <ItemContainer>
+        <ItemImageContainer cheaper={company.cheaper}>
+          <img src={company.img} alt={company.name} />
+          <div>{company.tag}</div>
+        </ItemImageContainer>
+        <div>
+          <ItemNameContainer>
+            <img src={company.nameImg} alt={company.name} />
+          </ItemNameContainer>
+          <CompanyInfoContainer>
+            <div>
+              <img src="/icons/star-1.svg" alt="star" />
+              <span>{company.rating}</span>
+            </div>
+            <div>
+              <img src="/icons/location.svg" alt="location" />
+              <span>{company.location}</span>
+            </div>
+            <div>
+              <img src="/icons/time.svg" alt="time" />
+              <span>{company.time}</span>
+            </div>
+          </CompanyInfoContainer>
+          <ItemDesc>
+            <div>{company.desc}</div>
+          </ItemDesc>
+        </div>
+      </ItemContainer>
+    </Link>
   );
 };
 
@@ -52,7 +55,9 @@ const ItemContainer = styled.div`
   }
 `;
 
-const ItemImageContainer = styled.div`
+const ItemImageContainer = styled.div<{
+  cheaper?: boolean;
+}>`
   width: 90px;
   position: relative;
   overflow: hidden;
@@ -64,7 +69,7 @@ const ItemImageContainer = styled.div`
     width: 100%;
     bottom: 0;
 
-    background: #4c35ff;
+    background: ${(props) => (props.cheaper ? '#4c35ff' : '#2B2B2B')};
     height: 26.842px;
 
     display: flex;
@@ -79,6 +84,11 @@ const ItemImageContainer = styled.div`
 
 const ItemNameContainer = styled.div`
   height: 23px;
+
+  img {
+    width: 63px;
+    height: 23px;
+  }
 `;
 
 const CompanyInfoContainer = styled.section`
@@ -103,6 +113,13 @@ const CompanyInfoContainer = styled.section`
     }
 
     &:nth-child(2) {
+      span {
+        width: 70px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
       img {
         height: 10px;
       }

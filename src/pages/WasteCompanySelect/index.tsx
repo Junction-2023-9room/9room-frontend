@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';
 
+import Divider from '../../components/Divider';
 import TitleHeader from '../../components/Header/TitleHeader';
 import { COMPANY_LIST } from '../../constants/company';
 import CompanyItem from './CompanyItem';
@@ -9,7 +10,7 @@ const Index = () => {
   const location = useLocation();
 
   const params = new URLSearchParams(location.search);
-  const wasteName = params.get('waste');
+  const wasteName = params.get('waste') ?? 'Mercury Sphygmomanometers';
 
   return (
     <div>
@@ -33,7 +34,7 @@ const Index = () => {
       <Divider />
       <List>
         {COMPANY_LIST.map((company) => (
-          <CompanyItem key={company.name} {...company} />
+          <CompanyItem key={company.id} {...company} />
         ))}
       </List>
     </div>
@@ -98,12 +99,4 @@ const RecommendCompany = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
-
-const Divider = styled.hr`
-  background: #f4f4f4;
-  height: 12px;
-  border: none;
-
-  width: 100%;
 `;

@@ -1,6 +1,6 @@
-import React from 'react';
 import { styled } from 'styled-components';
 
+import Divider from '../../components/Divider';
 import Rating from './Rating';
 import ReviewScoreBox from './ReviewScoreBox';
 
@@ -25,7 +25,7 @@ const ReviewTab = () => {
       <ReviewDetailBox>
         <ReviewDetailItem>
           <DetailHeader>
-            <img src={'/images/review/review-user.png'} alt="" />
+            <img src={'/images/review/review-user-1.png'} alt="" />
             <div>
               <h1>Hyoja elementry school</h1>
               <div>
@@ -60,7 +60,7 @@ const ReviewTab = () => {
         </ReviewDetailItem>
         <ReviewDetailItem>
           <DetailHeader>
-            <img src={'/images/review/review-user.png'} alt="" />
+            <img src={'/images/review/review-user-2.png'} alt="" />
             <div>
               <h1>Hyoja elementry school</h1>
               <div>
@@ -76,10 +76,11 @@ const ReviewTab = () => {
             </div>
           </DetailHeader>
           <p>
-            {`I recently used Jaka EcoDisposal for my mercury-containing waste, and I must
-            say I'm thoroughly impressed. Their use of cobots made the disposal process
-            not only efficient but also incredibly safe. It's evident that they prioritize
-            both the environment and customer satisfaction.`}
+            {`Having tried multiple disposal services in the past, Jaka 
+EcoDisposal stands out. Their commitment to quick and 
+reliable service is commendable. The team was professional, 
+and I was kept informed throughout the process. Highly 
+recommend!`}
           </p>
           <ReviewImageList>
             <li>
@@ -130,11 +131,6 @@ const RatingScoreStyled = styled.div`
     list-style: none;
     gap: 5px;
   }
-`;
-
-const Divider = styled.div`
-  height: 12px;
-  background-color: #f4f4f4;
 `;
 
 const ReviewDetailBox = styled.div`

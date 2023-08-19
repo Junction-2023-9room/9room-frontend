@@ -8,7 +8,10 @@ const Index = () => {
     <div>
       <TitleHeader />
       <Container>
-        <Heading>Choose your waste!</Heading>
+        <Heading>
+          Choose your <br />
+          <strong>Generous</strong> waste!
+        </Heading>
         <Desc>Ensure a safe and responsible disposal</Desc>
         <WasteList />
       </Container>
@@ -19,7 +22,7 @@ const Index = () => {
 export default Index;
 
 const Container = styled.div`
-  padding: 0 20px;
+  padding: 0 20px 160px;
 `;
 
 const Heading = styled.h2`
@@ -29,6 +32,10 @@ const Heading = styled.h2`
   color: #101010;
   font-size: 28px;
   font-weight: 700;
+
+  & > strong {
+    color: #4c35ff;
+  }
 `;
 
 const Desc = styled.p`

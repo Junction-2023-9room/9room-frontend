@@ -1,12 +1,10 @@
-import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import BottomButton from '../../components/BottomButton';
 import NavHeader from '../../components/Header/NavHeader';
-import WasteDescription from './WasteDescription';
-import WasteDisposal from './WasteDisposal';
-import WasteImage from './WasteImage';
+import WasteDetail from '../WasteDescription/WasteDetail';
+import UpcyclingDetail from './UpcyclingDetail';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -17,17 +15,10 @@ const Index = () => {
     navigate(`/company?waste=${wasteName}`);
   };
 
-  useEffect(() => {
-    // fetch API
-    //
-  }, []);
-
   return (
     <Container>
       <NavHeader title={wasteName} />
-      <WasteDescription />
-      <WasteImage />
-      <WasteDisposal />
+      {wasteName === 'lead-acid' ? <UpcyclingDetail /> : <WasteDetail />}
       <BottomButton text={'View more'} handler={handleOnClickMove} />
     </Container>
   );
@@ -37,5 +28,4 @@ export default Index;
 
 const Container = styled.div`
   position: relative;
-  padding: 0 20px;
 `;
