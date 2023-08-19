@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface Props {
-  title: string;
+  title?: string;
 }
 
 const NavHeader = ({ title }: Props) => {
@@ -29,12 +29,12 @@ const NavHeaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 52px;
 
   & > button {
     cursor: pointer;
     position: absolute;
-    left: 20px;
+    left: 0;
     top: 50%;
     height: 100%;
     background: none;
