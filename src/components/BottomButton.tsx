@@ -4,17 +4,26 @@ import { styled } from 'styled-components';
 interface Props {
   text: string;
   handler: () => void;
+  isReminder?: boolean;
 }
 
-const BottomButton = ({ text, handler }: Props) => {
+const BottomButton = ({ text, handler, isReminder = true }: Props) => {
   return (
-    <BottomContainer>
-      <button onClick={handler}>{text}</button>
-    </BottomContainer>
+    <>
+      <BottomContainer>
+        <button onClick={handler}>{text}</button>
+      </BottomContainer>
+      {isReminder && <Blank />}
+    </>
   );
 };
 
 export default BottomButton;
+
+const Blank = styled.div`
+  height: 92px;
+  width: 100%;
+`;
 
 const BottomContainer = styled.div`
   position: fixed;
