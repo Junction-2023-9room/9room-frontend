@@ -78,7 +78,7 @@ const WasteItem = ({ label, id, subItems }: Props) => {
 export default WasteItem;
 
 const Item = styled.div<{
-  isSubOpen: boolean;
+  isSubOpen?: boolean;
 }>`
   display: flex;
   justify-content: space-between;
