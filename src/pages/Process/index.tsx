@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import NavHeader from '../../components/Header/NavHeader';
 import { COMPANY } from '../../constants/company';
 import { get } from '../../libs/api';
+import { useScrollTop } from '../../libs/hooks/useScrollTop';
 import ProgressBox from './ProgressBox';
 import TrackOrder from './TrackOrder';
 
-const company = 'jaka';
-const waste = 'Mercury-containing-Waste';
-
 const Index = () => {
-  const data = COMPANY[company];
+  useScrollTop();
+
   const [stage, setStage] = useState(1);
+  const location = useLocation();
+
+  const waste = location.state.waste ?? 'Mercury-containing-Waste';
+  const companyName = location.state.companyName ?? 'jaka';
+
+  const data = COMPANY[companyName];
 
   const getData = async () => {
     const data = await get('/progress/calculate');
