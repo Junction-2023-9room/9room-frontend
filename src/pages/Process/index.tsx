@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import NavHeader from '../../components/Header/NavHeader';
 import Loading from '../../components/Loaindg';
 import { COMPANY } from '../../constants/company';
-import { get } from '../../libs/api';
 import useLoadingDelay from '../../libs/hooks/useLoadingDelay';
 import { useScrollTop } from '../../libs/hooks/useScrollTop';
 import ProgressBox from './ProgressBox';
