@@ -7,6 +7,12 @@ run:
 	fi
 
 	npm run build
-	pm2 stop "ncp"
+	
+	@if pm2 describe ncp > /dev/null 2>&1; then \
+		echo "Stopping existing pm2 process named 'ncp'"; \
+		pm2 stop ncp; \
+		pm2 delete ncp; \
+	fi
+	
 	pm2 start "npm run ncp" --name "ncp"
 
