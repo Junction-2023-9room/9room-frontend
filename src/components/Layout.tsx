@@ -1,14 +1,14 @@
-import { PropsWithChildren } from 'react';
+import { Outlet } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import theme from '../styles/theme';
 
-interface Props {
-  title?: string;
-}
-
-function Layout({ children }: PropsWithChildren<Props>) {
-  return <Container>{children}</Container>;
+function Layout() {
+  return (
+    <Container>
+      <Outlet />
+    </Container>
+  );
 }
 
 export default Layout;
