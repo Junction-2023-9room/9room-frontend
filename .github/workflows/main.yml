@@ -20,5 +20,4 @@ jobs:
                       cd ~/9room-frontend
                       git fetch --all
                       git reset --hard origin/main
-                      nvm use 16
                       make run

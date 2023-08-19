@@ -6,4 +6,5 @@ run:
 		sleep 2; \
 	fi
 
+	npm build
 	npm run ncp
