@@ -1,7 +1,11 @@
-import React from 'react';
+import WasteList from './WasteList';
 
 const Index = () => {
-  return <div>Waste</div>;
+  return (
+    <div>
+      <WasteList />
+    </div>
+  );
 };
 
 export default Index;
