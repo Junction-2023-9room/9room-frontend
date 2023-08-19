@@ -5,9 +5,9 @@ import { Company } from '../../constants/company';
 const CompanyItem = (company: Company) => {
   return (
     <ItemContainer>
-      <ItemImageContainer>
+      <ItemImageContainer cheaper={company.cheaper}>
         <img src={company.img} alt={company.name} />
-        <div>{company.cheaper} cheaper</div>
+        <div>{company.tag}</div>
       </ItemImageContainer>
       <div>
         <ItemNameContainer>
@@ -52,7 +52,9 @@ const ItemContainer = styled.div`
   }
 `;
 
-const ItemImageContainer = styled.div`
+const ItemImageContainer = styled.div<{
+  cheaper?: boolean;
+}>`
   width: 90px;
   position: relative;
   overflow: hidden;
@@ -64,7 +66,7 @@ const ItemImageContainer = styled.div`
     width: 100%;
     bottom: 0;
 
-    background: #4c35ff;
+    background: ${(props) => (props.cheaper ? '#4c35ff' : '#2B2B2B')};
     height: 26.842px;
 
     display: flex;
@@ -79,6 +81,11 @@ const ItemImageContainer = styled.div`
 
 const ItemNameContainer = styled.div`
   height: 23px;
+
+  img {
+    width: 63px;
+    height: 23px;
+  }
 `;
 
 const CompanyInfoContainer = styled.section`
