@@ -34,7 +34,7 @@ const NavHeaderContainer = styled.div`
   & > button {
     cursor: pointer;
     position: absolute;
-    left: 0;
+    left: 20px;
     top: 50%;
     height: 100%;
     background: none;

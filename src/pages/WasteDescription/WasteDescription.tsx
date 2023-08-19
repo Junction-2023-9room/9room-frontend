@@ -10,7 +10,9 @@ const WasteDescription = () => {
 
 const DescriptionStyled = styled.p`
   margin: 0;
-  margin-top: 32px;
+  padding: 0 20px;
+  margin-top: 14px;
+  margin-bottom: 24px;
   color: #101010;
   font-family: Pretendard;
   font-size: 20px;

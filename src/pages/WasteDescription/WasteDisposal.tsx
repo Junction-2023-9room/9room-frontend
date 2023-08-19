@@ -5,7 +5,7 @@ const WasteDisposal = () => {
   return (
     <DisposalContainer>
       <h1>Disposal risk</h1>
-      <img src={'/status-bar.png'} alt="" />
+      <img src={'/status-bar.svg'} alt="" />
       <p>
         Mercury-containing Waste: Common items like <br />
         thermometers and sphygmomanometers.
@@ -17,7 +17,7 @@ const WasteDisposal = () => {
 export default WasteDisposal;
 
 const DisposalContainer = styled.div`
-  margin-top: 14px;
+  margin: 24px 20px 0;
   padding: 14px 14px 18px;
   border-radius: 12px;
   border: 1px solid #c1c1c1;
@@ -46,5 +46,6 @@ const DisposalContainer = styled.div`
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
+    overflow: hidden;
   }
 `;
