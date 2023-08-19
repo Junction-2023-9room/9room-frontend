@@ -17,3 +17,8 @@ jobs:
                   port: ${{ secrets.PORT }}
                   script: |
                       echo "Action runtime history: $(date)" >> ~/history.txt
+                      cd ~/9room-frontend
+                      git fetch --all
+                      git reset --hard origin/main
+                      npm -i
+                      npm build run
