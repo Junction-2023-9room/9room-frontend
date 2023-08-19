@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      {location.pathname === '/' ? (
+      {location.pathname === '/' || location.pathname === '/waste' ? (
         <TitleHeader />
       ) : (
         <NavHeader title={'Mercury Thermometers'} />
