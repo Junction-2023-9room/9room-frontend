@@ -1,4 +1,5 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import BottomButton from './BottomButton';
@@ -7,12 +8,20 @@ import WasteDisposal from './WasteDisposal';
 import WasteImage from './WasteImage';
 
 const Index = () => {
+  const location = useLocation();
+  const wasteName = location.pathname.split('/')[2];
+
+  useEffect(() => {
+    // fetch API
+    //
+  }, []);
+
   return (
     <Container>
       <WasteDescription />
       <WasteImage />
       <WasteDisposal />
-      <BottomButton />
+      <BottomButton waste={wasteName} />
     </Container>
   );
 };

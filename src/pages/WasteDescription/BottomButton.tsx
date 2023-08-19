@@ -1,14 +1,16 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
-const BottomButton = () => {
+interface Props {
+  waste: string;
+}
+
+const BottomButton = ({ waste }: Props) => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const wasteName = location.pathname.split('/')[2];
 
   const handleOnClickMove = () => {
-    navigate(`/company?waste=${wasteName}`);
+    navigate(`/company?waste=${waste}`);
   };
 
   return (
