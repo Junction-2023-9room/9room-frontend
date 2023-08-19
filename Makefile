@@ -7,4 +7,4 @@ run:
 	fi
 
 	npm run build
-	npm run ncp&
+	pm2 start "npm run ncp"
