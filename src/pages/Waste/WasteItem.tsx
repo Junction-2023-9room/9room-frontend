@@ -5,6 +5,7 @@ import {
   SmallCheckIcon,
   SmallNonCheckIcon,
 } from '../../assets/icons/check-icon';
+import { IMAGES_PATH } from '../../constants/waste';
 
 interface ItemProps {
   label: string;
@@ -28,13 +29,13 @@ const WasteItem = ({ label, id, onClick, selectItem, subItems }: Props) => {
     <div>
       <Item onClick={() => onClick(id)} isChecked={isChecked}>
         <div>
-          <img src="/images/pesticides.svg" alt="pesticides" />
+          <img src={IMAGES_PATH[id]} alt={id} />
           <span>{label}</span>
         </div>
         <CheckIcon fill={isChecked ? '#FFF' : '#BABABA'} />
       </Item>
 
-      {isChecked && (
+      {isChecked && subItems && (
         <SubItemContainer>
           {subItems?.map((item) => (
             <SubItem
@@ -43,7 +44,7 @@ const WasteItem = ({ label, id, onClick, selectItem, subItems }: Props) => {
               onClick={() => onClick(item.id)}
             >
               <div>
-                <img src="/images/pesticides.svg" alt="pesticides" />
+                <img src={IMAGES_PATH[item.id]} alt={item.id} />
                 <span>{item.label}</span>
               </div>
               {item.id === selectItem ? <SmallCheckIcon /> : <SmallNonCheckIcon />}

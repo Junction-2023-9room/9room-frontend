@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
 
+import { WASTE_LIST } from '../../constants/waste';
 import WasteItem from './WasteItem';
 
 const Index = () => {
@@ -17,34 +18,16 @@ const Index = () => {
   return (
     <div>
       <ItemList>
-        <WasteItem
-          label={'Pesticides'}
-          id={'1'}
-          onClick={onItemClick}
-          selectItem={selectItem}
-        />
-        <WasteItem
-          label={'Pesticides'}
-          id={'11'}
-          onClick={onItemClick}
-          selectItem={selectItem}
-          subItems={[
-            {
-              label: 'aa',
-              id: '2',
-            },
-            {
-              label: '3333',
-              id: '4',
-            },
-          ]}
-        />
-        <WasteItem
-          label={'Pesticides'}
-          id={'41'}
-          onClick={onItemClick}
-          selectItem={selectItem}
-        />
+        {WASTE_LIST.map((item) => (
+          <WasteItem
+            key={item.id}
+            label={item.label}
+            id={item.id}
+            subItems={item.subItems}
+            onClick={onItemClick}
+            selectItem={selectItem}
+          />
+        ))}
       </ItemList>
     </div>
   );
