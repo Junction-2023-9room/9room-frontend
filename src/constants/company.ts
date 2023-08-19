@@ -1,4 +1,5 @@
 export interface Company {
+  id: string;
   name: string;
   nameImg: string;
   img: string;
@@ -17,6 +18,7 @@ export interface Company {
 
 export const COMPANY: Record<string, Company> = {
   jaka: {
+    id: 'jaka',
     name: 'Jaka',
     nameImg: '/images/company/jaka-logo.svg',
     img: '/images/company/jaka-img.png',
@@ -31,10 +33,11 @@ export const COMPANY: Record<string, Company> = {
     images: ['/images/company/jaka-1.png', '/images/company/jaka-2.png'],
   },
   gds: {
+    id: 'gds',
     name: 'GDS',
     nameImg: '/images/company/gds-logo.png',
     img: '/images/company/gds-img.png',
-    location: 'Central S',
+    location: 'Central Seoul',
     time: 'Within 5 days',
     rating: '4.5',
     desc: 'Reliable service but a bit on the pricier side.',
@@ -44,6 +47,7 @@ export const COMPANY: Record<string, Company> = {
     images: [],
   },
   mercury: {
+    id: 'mercury',
     name: 'Mercury',
     nameImg: '/images/company/mercury-logo.png',
     img: '/images/company/mercury-img.png',
@@ -57,10 +61,11 @@ export const COMPANY: Record<string, Company> = {
     images: [],
   },
   quickDispose: {
+    id: 'quickDispose',
     name: 'Quick Dispose',
     nameImg: '/images/company/quick-dispose-logo.png',
     img: '/images/company/quick-dispose-img.png',
-    location: 'Farthest f',
+    location: 'Farthest form Seoul',
     time: 'Within 8 days',
     rating: '3.9',
     desc: 'Service was okay, but there were some delays.',
@@ -70,6 +75,7 @@ export const COMPANY: Record<string, Company> = {
     images: [],
   },
   safeMercuryDisposals: {
+    id: 'safeMercuryDisposals',
     name: 'Safe Mercury Disposals',
     nameImg: '/images/company/safe-mercury-disposals-logo.png',
     img: '/images/company/safe-mercury-disposals-img.png',

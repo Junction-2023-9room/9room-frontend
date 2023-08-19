@@ -33,7 +33,7 @@ const Index = () => {
       <Divider />
       <List>
         {COMPANY_LIST.map((company) => (
-          <CompanyItem key={company.name} {...company} />
+          <CompanyItem key={company.id} {...company} />
         ))}
       </List>
     </div>

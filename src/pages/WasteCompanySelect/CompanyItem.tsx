@@ -1,37 +1,40 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Company } from '../../constants/company';
 
 const CompanyItem = (company: Company) => {
   return (
-    <ItemContainer>
-      <ItemImageContainer cheaper={company.cheaper}>
-        <img src={company.img} alt={company.name} />
-        <div>{company.tag}</div>
-      </ItemImageContainer>
-      <div>
-        <ItemNameContainer>
-          <img src={company.nameImg} alt={company.name} />
-        </ItemNameContainer>
-        <CompanyInfoContainer>
-          <div>
-            <img src="/icons/star-1.svg" alt="star" />
-            <span>{company.rating}</span>
-          </div>
-          <div>
-            <img src="/icons/location.svg" alt="location" />
-            <span>{company.location}</span>
-          </div>
-          <div>
-            <img src="/icons/time.svg" alt="time" />
-            <span>{company.time}</span>
-          </div>
-        </CompanyInfoContainer>
-        <ItemDesc>
-          <div>{company.desc}</div>
-        </ItemDesc>
-      </div>
-    </ItemContainer>
+    <Link to={`/company/${company.id}`} style={{ textDecoration: 'none' }}>
+      <ItemContainer>
+        <ItemImageContainer cheaper={company.cheaper}>
+          <img src={company.img} alt={company.name} />
+          <div>{company.tag}</div>
+        </ItemImageContainer>
+        <div>
+          <ItemNameContainer>
+            <img src={company.nameImg} alt={company.name} />
+          </ItemNameContainer>
+          <CompanyInfoContainer>
+            <div>
+              <img src="/icons/star-1.svg" alt="star" />
+              <span>{company.rating}</span>
+            </div>
+            <div>
+              <img src="/icons/location.svg" alt="location" />
+              <span>{company.location}</span>
+            </div>
+            <div>
+              <img src="/icons/time.svg" alt="time" />
+              <span>{company.time}</span>
+            </div>
+          </CompanyInfoContainer>
+          <ItemDesc>
+            <div>{company.desc}</div>
+          </ItemDesc>
+        </div>
+      </ItemContainer>
+    </Link>
   );
 };
 
@@ -110,6 +113,13 @@ const CompanyInfoContainer = styled.section`
     }
 
     &:nth-child(2) {
+      span {
+        width: 70px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
       img {
         height: 10px;
       }
