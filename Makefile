@@ -7,4 +7,6 @@ run:
 	fi
 
 	npm run build
-	pm2 start "npm run ncp"
+	pm2 stop "ncp"
+	pm2 start "npm run ncp" --name "ncp"
+
