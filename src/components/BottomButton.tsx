@@ -1,21 +1,15 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 interface Props {
-  waste: string;
+  text: string;
+  handler: () => void;
 }
 
-const BottomButton = ({ waste }: Props) => {
-  const navigate = useNavigate();
-
-  const handleOnClickMove = () => {
-    navigate(`/company?waste=${waste}`);
-  };
-
+const BottomButton = ({ text, handler }: Props) => {
   return (
     <BottomContainer>
-      <button onClick={handleOnClickMove}>자세히 보러가기</button>
+      <button onClick={handler}>{text}</button>
     </BottomContainer>
   );
 };
@@ -35,7 +29,7 @@ const BottomContainer = styled.div`
 
   & > button {
     cursor: pointer;
-    max-width: 475px;
+    max-width: calc(390px - 40px);
     width: calc(100% - 40px);
     padding: 0 20px;
     border: none;
