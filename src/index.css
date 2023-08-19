@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: Pretendard;
 }
 
 body {
@@ -9,7 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: #4C35FF;
+  background-color: #4c35ff;
 }
 
 code {
