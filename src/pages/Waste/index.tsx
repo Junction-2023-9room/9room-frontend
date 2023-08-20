@@ -1,16 +1,25 @@
 import styled from 'styled-components';
 
 import TitleHeader from '../../components/Header/TitleHeader';
+import StaggerWrapper from '../../components/StaggerWrapper';
+import { useScrollTop } from '../../libs/hooks/useScrollTop';
 import WasteList from './WasteList';
 
 const Index = () => {
+  useScrollTop();
+
   return (
     <div>
       <TitleHeader />
       <Container>
-        <Heading>Choose your waste!</Heading>
-        <Desc>Ensure a safe and responsible disposal</Desc>
-        <WasteList />
+        <StaggerWrapper>
+          <Heading>
+            Choose your <br />
+            <strong>Generous</strong> waste!
+          </Heading>
+          <Desc>Ensure a safe and responsible disposal</Desc>
+          <WasteList />
+        </StaggerWrapper>
       </Container>
     </div>
   );
@@ -19,7 +28,7 @@ const Index = () => {
 export default Index;
 
 const Container = styled.div`
-  padding: 0 20px;
+  padding: 0 20px 160px;
 `;
 
 const Heading = styled.h2`
@@ -29,6 +38,10 @@ const Heading = styled.h2`
   color: #101010;
   font-size: 28px;
   font-weight: 700;
+
+  & > strong {
+    color: #4c35ff;
+  }
 `;
 
 const Desc = styled.p`

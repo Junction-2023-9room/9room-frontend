@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
@@ -54,7 +55,11 @@ const WasteItem = ({ label, id, subItems }: Props) => {
       </Item>
 
       {isSubOpen && subItems && (
-        <SubItemContainer>
+        <SubItemContainer
+          initial={{ height: 0 }}
+          animate={{ height: 'auto' }}
+          exit={{ height: 0 }}
+        >
           {subItems?.map((item) => (
             <SubItem key={item.id} onClick={() => movePage(item.id)}>
               <div>
@@ -138,7 +143,7 @@ const Item = styled.div<{
   }
 `;
 
-const SubItemContainer = styled.div`
+const SubItemContainer = styled(motion.div)`
   border-radius: 12px;
   background: #efefef;
   margin-top: 4px;

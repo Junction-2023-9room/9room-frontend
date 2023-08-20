@@ -15,6 +15,21 @@ export const IMAGES_PATH: ImageTyps = {
   'Mercury-containing-Waste-etc': '/images/etc.svg',
 } as const;
 
+export const WASTE_LIST_LABEL: {
+  [key: string]: string;
+} = {
+  persticides: 'Pesticides',
+  'agri-chemi': 'Agricultural Chemicals',
+  'exp-flammable': 'Explosive & Flammable',
+  'expired-med': 'Expired Medicines',
+  'fluorescent-lights': 'Fluorescent Lights',
+  'lead-acid': 'Lead-acid Batteries',
+  'Mercury-containing-Waste': 'Mercury-containing Waste',
+  'mercury-sphy': 'Mercury Sphygmomanometers',
+  'mercury-thermo': 'Mercury Thermometers',
+  'Mercury-containing-Waste-etc': 'etc',
+} as const;
+
 export const WASTE_LIST: {
   label: string;
   id: string;

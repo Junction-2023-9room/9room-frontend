@@ -1,12 +1,19 @@
+import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import Divider from '../../components/Divider';
 import TitleHeader from '../../components/Header/TitleHeader';
+import StaggerWrapper from '../../components/StaggerWrapper';
 import { COMPANY_LIST } from '../../constants/company';
+import { defaultFadeInVariants } from '../../constants/motions';
+import { WASTE_LIST_LABEL } from '../../constants/waste';
+import { useScrollTop } from '../../libs/hooks/useScrollTop';
 import CompanyItem from './CompanyItem';
 
 const Index = () => {
+  useScrollTop();
+
   const location = useLocation();
 
   const params = new URLSearchParams(location.search);
@@ -15,28 +22,39 @@ const Index = () => {
   return (
     <div>
       <TitleHeader />
-      <TopContainer>
-        <Heading>추천 업체</Heading>
-        <RecommendCompany>
-          <span>{wasteName}</span>
+      {/* <StaggerWrapper paragraphVariants={defaultFadeInVariants}> */}
+      <motion.div
+        variants={defaultFadeInVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        <TopContainer>
+          <Heading>추천 업체</Heading>
+          <RecommendCompany>
+            <span>{WASTE_LIST_LABEL[wasteName]}</span>
 
-          <img src="/icons/drop-arrow.svg" alt="drop-arrow" />
-        </RecommendCompany>
+            <img src="/icons/drop-arrow.svg" alt="drop-arrow" />
+          </RecommendCompany>
 
-        <TotalSection>
-          <span>Total {COMPANY_LIST.length}</span>
-          <div>
-            <span>Default</span>
-            <img src="/icons/down-arrow.svg" alt="down-arrow" />
-          </div>
-        </TotalSection>
-      </TopContainer>
-      <Divider />
+          <TotalSection>
+            <span>Total {COMPANY_LIST.length}</span>
+            <div>
+              <span>Default</span>
+              <img src="/icons/down-arrow.svg" alt="down-arrow" />
+            </div>
+          </TotalSection>
+        </TopContainer>
+        <Divider />
+      </motion.div>
       <List>
-        {COMPANY_LIST.map((company) => (
-          <CompanyItem key={company.id} {...company} />
-        ))}
+        <StaggerWrapper>
+          {COMPANY_LIST.map((company) => (
+            <CompanyItem key={company.id} {...company} />
+          ))}
+        </StaggerWrapper>
       </List>
+      {/* </StaggerWrapper> */}
     </div>
   );
 };

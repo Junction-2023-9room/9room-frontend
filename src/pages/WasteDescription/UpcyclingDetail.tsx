@@ -1,59 +1,74 @@
-import React from 'react';
+import { motion } from 'framer-motion';
 import { styled } from 'styled-components';
 
 import Divider from '../../components/Divider';
 import Badge from '../../components/Header/Badge';
+import StaggerWrapper from '../../components/StaggerWrapper';
+import { defaultFadeInVariants } from '../../constants/motions';
 import Rating from '../CompanyDetail/Rating';
 
 const UpcyclingDetail = () => {
   return (
     <>
-      <Badge type="upcycling" />
-      <UpcyclingDescription>
-        <h1>
-          Save money with <br /> eco-friendly upcycling!
-        </h1>
-        <DescriptionInfo>
-          <p>
-            Reduce processing costs by <strong>15%</strong>
-          </p>
-          <p>compared to traditional methods.</p>
-        </DescriptionInfo>
-      </UpcyclingDescription>
-      <Divider />
-      <UpcyclingInfo>
-        <h2>Customer review</h2>
-        <UpcyclingReviewList>
-          <UpcyclingReview>
-            <img src={'/images/upcycling/upcycling-user-1.png'} alt={''} />
-            <div>
+      <div
+        style={{
+          minHeight: '184px',
+        }}
+      >
+        <Badge type="upcycling" />
+        <UpcyclingDescription>
+          <h1>
+            Save money with <br /> eco-friendly upcycling!
+          </h1>
+          <DescriptionInfo>
+            <p>
+              Reduce processing costs by <strong>15%</strong>
+            </p>
+            <p>compared to traditional methods.</p>
+          </DescriptionInfo>
+        </UpcyclingDescription>
+        <Divider />
+      </div>
+      <motion.div
+        variants={defaultFadeInVariants}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        <UpcyclingInfo>
+          <h2>Customer review</h2>
+          <UpcyclingReviewList>
+            <UpcyclingReview>
+              <img src={'/images/upcycling/upcycling-user-1.png'} alt={''} />
               <div>
-                <span>Alex</span>
-                <Rating active={true} /> 4.5
+                <div>
+                  <span>Alex</span>
+                  <Rating active={true} /> 4.5
+                </div>
+                <p>
+                  {`It's nice to know that we're helping the environment and saving money.`}
+                </p>
               </div>
-              <p>
-                {`It's nice to know that we're helping the environment and saving money.`}
-              </p>
-            </div>
-          </UpcyclingReview>
-          <UpcyclingReview>
-            <img src={'/images/upcycling/upcycling-user-2.png'} alt={''} />
-            <div>
+            </UpcyclingReview>
+            <UpcyclingReview>
+              <img src={'/images/upcycling/upcycling-user-2.png'} alt={''} />
               <div>
-                <span>Ann</span>
-                <Rating active={true} /> 4.8
-              </div>
-              <p>
-                {`It's nice to know that it's upcycled, 
+                <div>
+                  <span>Ann</span>
+                  <Rating active={true} /> 4.8
+                </div>
+                <p>
+                  {`It's nice to know that it's upcycled, 
 as I might not have noticed that.`}
-              </p>
-            </div>
-          </UpcyclingReview>
-        </UpcyclingReviewList>
-      </UpcyclingInfo>
-      <ImageWrapper>
-        <img src={'/upcycling.png'} alt="upcycling" />
-      </ImageWrapper>
+                </p>
+              </div>
+            </UpcyclingReview>
+          </UpcyclingReviewList>
+        </UpcyclingInfo>
+        <ImageWrapper>
+          <img src={'/upcycling.png'} alt="upcycling" />
+        </ImageWrapper>
+      </motion.div>
     </>
   );
 };
@@ -91,6 +106,8 @@ const DescriptionInfo = styled.div`
 
     & > strong {
       color: #4c35ff;
+      position: relative;
+      top: 1px;
     }
   }
 `;
@@ -114,7 +131,7 @@ const UpcyclingReviewList = styled.ul`
   padding: 0;
   overflow-x: scroll;
   gap: 12px;
-
+  width: 100%;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -146,6 +163,7 @@ const UpcyclingReview = styled.li`
       font-weight: 700;
       line-height: 100%;
       gap: 4px;
+      margin-bottom: 4px;
 
       & > span {
         position: relative;
