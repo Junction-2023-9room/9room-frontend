@@ -24,7 +24,7 @@ const Index = () => {
 
   const onClick = () => {
     fireToast({
-      content: '준비중입니다.',
+      content: 'In ready.',
     });
   };
 
@@ -39,7 +39,7 @@ const Index = () => {
         exit="exit"
       >
         <TopContainer>
-          <Heading>추천 업체</Heading>
+          <Heading>Recommended company</Heading>
           <RecommendCompany>
             <span>{WASTE_LIST_LABEL[wasteName]}</span>
             <div onClick={onClick}>
