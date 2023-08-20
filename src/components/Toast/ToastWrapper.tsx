@@ -7,7 +7,6 @@ import Toast from './Toast';
 
 const ToastWrapper = () => {
   const { toast } = useToastStore();
-  console.log('toast: ', toast);
 
   return (
     <div>

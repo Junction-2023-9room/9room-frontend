@@ -5,6 +5,7 @@ import { styled } from 'styled-components';
 import Divider from '../../components/Divider';
 import TitleHeader from '../../components/Header/TitleHeader';
 import StaggerWrapper from '../../components/StaggerWrapper';
+import useToast from '../../components/Toast/useToast';
 import { COMPANY_LIST } from '../../constants/company';
 import { defaultFadeInVariants } from '../../constants/motions';
 import { WASTE_LIST_LABEL } from '../../constants/waste';
@@ -18,6 +19,14 @@ const Index = () => {
 
   const params = new URLSearchParams(location.search);
   const wasteName = params.get('waste') ?? 'Mercury Sphygmomanometers';
+
+  const { fireToast } = useToast();
+
+  const onClick = () => {
+    fireToast({
+      content: '준비중입니다.',
+    });
+  };
 
   return (
     <div>
@@ -33,13 +42,14 @@ const Index = () => {
           <Heading>추천 업체</Heading>
           <RecommendCompany>
             <span>{WASTE_LIST_LABEL[wasteName]}</span>
-
-            <img src="/icons/drop-arrow.svg" alt="drop-arrow" />
+            <div onClick={onClick}>
+              <img src="/icons/drop-arrow.svg" alt="drop-arrow" />
+            </div>
           </RecommendCompany>
 
           <TotalSection>
             <span>Total {COMPANY_LIST.length}</span>
-            <div>
+            <div onClick={onClick}>
               <span>Default</span>
               <img src="/icons/down-arrow.svg" alt="down-arrow" />
             </div>
