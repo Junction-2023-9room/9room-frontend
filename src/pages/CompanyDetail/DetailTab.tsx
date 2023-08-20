@@ -5,7 +5,7 @@ const DetailTab = () => {
   return (
     <DetailTabContainer>
       <h1>SK Ecoplant excels in waste dispoal with its cost-effective approach.</h1>
-      <img src={'/company.png'} alt="" />
+      <img src={'/company.png'} alt="company" />
       <p>
         Offering services at competitive rates, they ensure top value for clients. Their
         swift processing minimizes potential risks. Their swift processing minimizes
