@@ -1,10 +1,20 @@
 import { styled } from 'styled-components';
 
+import useToast from '../../components/Toast/useToast';
 import Tooltip from '../../components/Tooltip';
 import { COMPANY } from '../../constants/company';
 
 const Info = ({ companyName }: { companyName: string }) => {
   const data = COMPANY[companyName];
+
+  const { fireToast } = useToast();
+
+  const onClick = () => {
+    fireToast({
+      content: '준비중입니다.',
+    });
+  };
+
   return (
     <Container>
       <ImageContainer>
@@ -55,10 +65,10 @@ const Info = ({ companyName }: { companyName: string }) => {
         <div>
           {data.cheaper ? (
             <Tooltip position="top" message={data.cheaper + ' cheaper than competitors'}>
-              <strong>{data.price} ₩</strong>
+              <strong>{data.price.toLocaleString('ko')} ₩</strong>
             </Tooltip>
           ) : (
-            <strong>{data.price} ₩</strong>
+            <strong>{data.price.toLocaleString('ko')} ₩</strong>
           )}
 
           <span>In special cases, prices may vary.</span>
@@ -85,6 +95,10 @@ const ImageContainer = styled.div`
     height: 170px;
     border-radius: 12px;
     object-fit: cover;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 `;
 

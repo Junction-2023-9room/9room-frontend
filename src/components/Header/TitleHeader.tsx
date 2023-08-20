@@ -1,10 +1,21 @@
 import styled from 'styled-components';
 
+import useToast from '../Toast/useToast';
+
 const TitleHeader = () => {
+  const { fireToast } = useToast();
+
+  const onClick = () => {
+    fireToast({
+      content: '준비중입니다.',
+    });
+  };
   return (
     <TitleHeaderContainer>
       <img src={'/logo.svg'} alt="autoWaste" />
-      <img src={'/icons/three-dots.svg'} alt="three-dots" />
+      <div onClick={onClick}>
+        <img src={'/icons/three-dots.svg'} alt="three-dots" />
+      </div>
     </TitleHeaderContainer>
   );
 };
