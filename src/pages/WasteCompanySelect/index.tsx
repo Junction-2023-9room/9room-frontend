@@ -39,7 +39,7 @@ const Index = () => {
         exit="exit"
       >
         <TopContainer>
-          <Heading>Recommended company</Heading>
+          <Heading>Recommended Companies</Heading>
           <RecommendCompany>
             <span>{WASTE_LIST_LABEL[wasteName]}</span>
             <div onClick={onClick}>
