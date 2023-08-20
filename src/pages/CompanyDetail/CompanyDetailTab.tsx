@@ -1,6 +1,8 @@
+import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
+import { defaultFadeInVariants } from '../../constants/motions';
 import DetailTab from './DetailTab';
 import ReviewTab from './ReviewTab';
 
@@ -23,9 +25,27 @@ const CompanyDetailTab = () => {
         ))}
       </TabContainer>
       <div>
-        {activeTab === 'Detail' && <DetailTab />}
+        {activeTab === 'Detail' && (
+          <motion.div
+            variants={defaultFadeInVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
+            <DetailTab />
+          </motion.div>
+        )}
         {activeTab === 'Information' && <></>}
-        {activeTab === 'Review' && <ReviewTab />}
+        {activeTab === 'Review' && (
+          <motion.div
+            variants={defaultFadeInVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
+            <ReviewTab />
+          </motion.div>
+        )}
       </div>
     </CompanyDetailTabContainer>
   );

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import TitleHeader from '../../components/Header/TitleHeader';
+import StaggerWrapper from '../../components/StaggerWrapper';
 import WasteList from './WasteList';
 
 const Index = () => {
@@ -8,12 +9,14 @@ const Index = () => {
     <div>
       <TitleHeader />
       <Container>
-        <Heading>
-          Choose your <br />
-          <strong>Generous</strong> waste!
-        </Heading>
-        <Desc>Ensure a safe and responsible disposal</Desc>
-        <WasteList />
+        <StaggerWrapper>
+          <Heading>
+            Choose your <br />
+            <strong>Generous</strong> waste!
+          </Heading>
+          <Desc>Ensure a safe and responsible disposal</Desc>
+          <WasteList />
+        </StaggerWrapper>
       </Container>
     </div>
   );

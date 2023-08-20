@@ -1,11 +1,18 @@
+import { m, motion } from 'framer-motion';
 import { styled } from 'styled-components';
 
+import { defaultFadeInVariants } from '../../constants/motions';
 import { WASTE_LIST } from '../../constants/waste';
 import WasteItem from './WasteItem';
 
 const WasteList = () => {
   return (
-    <div>
+    <motion.div
+      variants={defaultFadeInVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
       <ItemList>
         {WASTE_LIST.map((item) => (
           <WasteItem
@@ -16,7 +23,7 @@ const WasteList = () => {
           />
         ))}
       </ItemList>
-    </div>
+    </motion.div>
   );
 };
 

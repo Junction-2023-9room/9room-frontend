@@ -27,9 +27,14 @@ const ProgressBox = ({ waste, stage }: Props) => {
       <ProgressContainer step={thisStep}>
         <div>
           {STEP_LABEL.map((label, index) => (
-            <span key={label}>
+            <motion.span
+              key={label}
+              // initial={{ opacity: 0 }}
+              // animate={{ opacity: 1 }}
+              // transition={{ delay: index * 0.5 }}
+            >
               {thisStep === index ? <strong>{label}</strong> : label}
-            </span>
+            </motion.span>
           ))}
         </div>
         <div className="progress-bar">
@@ -93,6 +98,11 @@ const ProgressContainer = styled.div<{
       font-size: 12.561px;
       font-weight: 700;
     }
+  }
+  span,
+  strong {
+    transition: all 0.3s ease-in-out;
+    transition-delay: 1s;
   }
 
   .progress-bar {
