@@ -55,10 +55,10 @@ const Info = ({ companyName }: { companyName: string }) => {
         <div>
           {data.cheaper ? (
             <Tooltip position="top" message={data.cheaper + ' cheaper than competitors'}>
-              <strong>{data.price.toLocaleString('ko')} ₩</strong>
+              <strong>{data.price} ₩</strong>
             </Tooltip>
           ) : (
-            <strong>{data.price.toLocaleString('ko')} ₩</strong>
+            <strong>{data.price} ₩</strong>
           )}
 
           <span>In special cases, prices may vary.</span>
@@ -85,10 +85,6 @@ const ImageContainer = styled.div`
     height: 170px;
     border-radius: 12px;
     object-fit: cover;
-  }
-
-  &::-webkit-scrollbar {
-    display: none;
   }
 `;
 
