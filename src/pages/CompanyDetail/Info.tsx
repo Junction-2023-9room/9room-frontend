@@ -1,10 +1,20 @@
 import { styled } from 'styled-components';
 
+import useToast from '../../components/Toast/useToast';
 import Tooltip from '../../components/Tooltip';
 import { COMPANY } from '../../constants/company';
 
 const Info = ({ companyName }: { companyName: string }) => {
   const data = COMPANY[companyName];
+
+  const { fireToast } = useToast();
+
+  const onClick = () => {
+    fireToast({
+      content: '준비중입니다.',
+    });
+  };
+
   return (
     <Container>
       <ImageContainer>
