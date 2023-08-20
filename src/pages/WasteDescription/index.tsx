@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import BottomButton from '../../components/BottomButton';
 import NavHeader from '../../components/Header/NavHeader';
 import { LOCAL_STORAGE_KEY } from '../../constants/storage';
+import { WASTE_LIST_LABEL } from '../../constants/waste';
 import { useScrollTop } from '../../libs/hooks/useScrollTop';
 import WasteDetail from '../WasteDescription/WasteDetail';
 import UpcyclingDetail from './UpcyclingDetail';
@@ -22,7 +23,7 @@ const Index = () => {
 
   return (
     <Container>
-      <NavHeader title={wasteName} />
+      <NavHeader title={WASTE_LIST_LABEL[wasteName]} />
       {wasteName === 'lead-acid' ? <UpcyclingDetail /> : <WasteDetail />}
       <BottomButton text={'View more'} handler={handleOnClickMove} />
     </Container>

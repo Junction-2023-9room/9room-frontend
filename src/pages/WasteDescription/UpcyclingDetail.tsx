@@ -91,6 +91,8 @@ const DescriptionInfo = styled.div`
 
     & > strong {
       color: #4c35ff;
+      position: relative;
+      top: 1px;
     }
   }
 `;
@@ -114,7 +116,7 @@ const UpcyclingReviewList = styled.ul`
   padding: 0;
   overflow-x: scroll;
   gap: 12px;
-
+  width: 100%;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -146,6 +148,7 @@ const UpcyclingReview = styled.li`
       font-weight: 700;
       line-height: 100%;
       gap: 4px;
+      margin-bottom: 4px;
 
       & > span {
         position: relative;
