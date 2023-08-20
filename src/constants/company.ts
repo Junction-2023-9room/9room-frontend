@@ -20,7 +20,7 @@ export const COMPANY: Record<string, Company> = {
   jaka: {
     id: 'jaka',
     name: 'Jaka',
-    nameImg: '/images/company/jaka-logo.svg',
+    nameImg: '/images/company/sk-logo.png',
     img: '/images/company/jaka-img.png',
     location: 'Near Seoul',
     time: 'Within 2 days',
