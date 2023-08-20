@@ -8,9 +8,12 @@ import StaggerWrapper from '../../components/StaggerWrapper';
 import { COMPANY_LIST } from '../../constants/company';
 import { defaultFadeInVariants } from '../../constants/motions';
 import { WASTE_LIST_LABEL } from '../../constants/waste';
+import { useScrollTop } from '../../libs/hooks/useScrollTop';
 import CompanyItem from './CompanyItem';
 
 const Index = () => {
+  useScrollTop();
+
   const location = useLocation();
 
   const params = new URLSearchParams(location.search);

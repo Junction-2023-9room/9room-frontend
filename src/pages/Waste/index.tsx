@@ -2,9 +2,12 @@ import styled from 'styled-components';
 
 import TitleHeader from '../../components/Header/TitleHeader';
 import StaggerWrapper from '../../components/StaggerWrapper';
+import { useScrollTop } from '../../libs/hooks/useScrollTop';
 import WasteList from './WasteList';
 
 const Index = () => {
+  useScrollTop();
+
   return (
     <div>
       <TitleHeader />
