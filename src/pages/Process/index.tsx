@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 import NavHeader from '../../components/Header/NavHeader';
 import Loading from '../../components/Loaindg';
+import StaggerWrapper from '../../components/StaggerWrapper';
 import { COMPANY } from '../../constants/company';
-import { get } from '../../libs/api';
 import useLoadingDelay from '../../libs/hooks/useLoadingDelay';
 import { useScrollTop } from '../../libs/hooks/useScrollTop';
 import ProgressBox from './ProgressBox';
@@ -23,9 +23,9 @@ const Index = () => {
   const data = COMPANY[companyName];
 
   const isLoading = useLoadingDelay();
-  console.log('isLoading: ', isLoading);
 
   useEffect(() => {
+    if (isLoading) return;
     const timer1 = setTimeout(() => {
       setStage(1);
     }, 3000);
@@ -41,7 +41,7 @@ const Index = () => {
       clearTimeout(timer2);
       clearTimeout(timer3);
     };
-  }, []);
+  }, [isLoading]);
 
   return (
     <>
@@ -51,7 +51,7 @@ const Index = () => {
         {isLoading ? (
           <Loading />
         ) : (
-          <>
+          <StaggerWrapper>
             <Heading1>
               <div>
                 <span>Your</span>
@@ -69,7 +69,7 @@ const Index = () => {
               date={new Date('2021-08-20').getTime()}
             />
             <TrackOrder stage={stage} />
-          </>
+          </StaggerWrapper>
         )}
       </Container>
     </>
@@ -81,6 +81,7 @@ export default Index;
 const Container = styled.div`
   padding: 20px;
   background: #f5f5f4;
+  min-height: 100vh;
 `;
 
 const Heading2 = styled.h2`

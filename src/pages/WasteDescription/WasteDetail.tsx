@@ -1,14 +1,21 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import { styled } from 'styled-components';
 
 import Divider from '../../components/Divider';
 import Badge from '../../components/Header/Badge';
+import { defaultFadeInVariants } from '../../constants/motions';
 import WasteDescription from './WasteDescription';
 import WasteDisposal from './WasteDisposal';
 
 const WasteDetail = () => {
   return (
-    <>
+    <motion.div
+      variants={defaultFadeInVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
       <Badge type="warning" />
       <WasteDescription />
       <WasteImageList>
@@ -21,7 +28,7 @@ const WasteDetail = () => {
       </WasteImageList>
       <Divider />
       <WasteDisposal />
-    </>
+    </motion.div>
   );
 };
 

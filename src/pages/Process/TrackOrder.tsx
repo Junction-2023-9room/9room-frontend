@@ -52,7 +52,7 @@ const ProgressWrapper = styled.div`
 const PathSvg = ({ $percent }: { $percent: number }) => {
   const start = (250 / 100) * $percent;
   return (
-    <svg
+    <Svg
       xmlns="http://www.w3.org/2000/svg"
       width="17"
       height="239"
@@ -124,6 +124,14 @@ const PathSvg = ({ $percent }: { $percent: number }) => {
           <stop offset="1" stopColor="#4C35FF" stopOpacity="0" />
         </linearGradient>
       </defs>
-    </svg>
+    </Svg>
   );
 };
+
+const Svg = styled.svg`
+  transition: all 0.3s ease-in-out;
+
+  * {
+    transition: all 0.3s ease-in-out;
+  }
+`;
