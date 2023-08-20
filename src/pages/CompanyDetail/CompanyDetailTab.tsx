@@ -8,7 +8,11 @@ import ReviewTab from './ReviewTab';
 
 const tabList: string[] = ['Detail', 'Information', 'Review'];
 
-const CompanyDetailTab = () => {
+interface Props {
+  companyName: string;
+}
+
+const CompanyDetailTab = ({ companyName }: Props) => {
   const [activeTab, setActiveTab] = useState('Detail');
 
   return (
@@ -24,29 +28,31 @@ const CompanyDetailTab = () => {
           </TabItem>
         ))}
       </TabContainer>
-      <div>
-        {activeTab === 'Detail' && (
-          <motion.div
-            variants={defaultFadeInVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-          >
-            <DetailTab />
-          </motion.div>
-        )}
-        {activeTab === 'Information' && <></>}
-        {activeTab === 'Review' && (
-          <motion.div
-            variants={defaultFadeInVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-          >
-            <ReviewTab />
-          </motion.div>
-        )}
-      </div>
+      {companyName === 'jaka' && (
+        <div>
+          {activeTab === 'Detail' && (
+            <motion.div
+              variants={defaultFadeInVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <DetailTab />
+            </motion.div>
+          )}
+          {activeTab === 'Information' && <></>}
+          {activeTab === 'Review' && (
+            <motion.div
+              variants={defaultFadeInVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <ReviewTab />
+            </motion.div>
+          )}
+        </div>
+      )}
     </CompanyDetailTabContainer>
   );
 };
