@@ -21,7 +21,7 @@ const TrackOrderItem = ({ src, title, date, activeSrc, active, detail }: Props) 
   return (
     <TrackOrderItemStyled
       $active={active}
-      onClick={() => detail && setIsOpen((prev) => !prev)}
+      onClick={() => detail && active && setIsOpen((prev) => !prev)}
     >
       <div>
         <img src={active ? activeSrc : src} alt={title} />
@@ -30,7 +30,7 @@ const TrackOrderItem = ({ src, title, date, activeSrc, active, detail }: Props) 
           <div>09:02 | Aug 20</div>
         </div>
       </div>
-      {detail && <div>{isOpen ? <UpArrowIcon /> : <DownArrowIcon />}</div>}{' '}
+      {detail && active && <div>{isOpen ? <UpArrowIcon /> : <DownArrowIcon />}</div>}{' '}
       {detail && isOpen && (
         <Desc>
           <h2>

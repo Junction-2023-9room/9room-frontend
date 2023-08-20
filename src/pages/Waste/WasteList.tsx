@@ -1,4 +1,4 @@
-import { m, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { styled } from 'styled-components';
 
 import { defaultFadeInVariants } from '../../constants/motions';
