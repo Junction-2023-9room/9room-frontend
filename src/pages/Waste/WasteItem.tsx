@@ -86,6 +86,7 @@ const Item = styled.div<{
   isSubOpen?: boolean;
 }>`
   display: flex;
+  margin: 14px 0;
   justify-content: space-between;
   padding: 0 14px;
   height: 63px;
