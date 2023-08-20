@@ -24,6 +24,7 @@ const BadgeStyled = styled.span<{ $color: string; $background: string }>`
   align-items: center;
   top: 14px;
   left: 14px;
+  height: 30px;
   margin-top: 27px;
   margin-left: 20px;
   padding: 6px 10px;
