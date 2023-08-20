@@ -4,6 +4,7 @@ import { styled } from 'styled-components';
 import Divider from '../../components/Divider';
 import TitleHeader from '../../components/Header/TitleHeader';
 import { COMPANY_LIST } from '../../constants/company';
+import { WASTE_LIST_LABEL } from '../../constants/waste';
 import CompanyItem from './CompanyItem';
 
 const Index = () => {
@@ -18,7 +19,7 @@ const Index = () => {
       <TopContainer>
         <Heading>추천 업체</Heading>
         <RecommendCompany>
-          <span>{wasteName}</span>
+          <span>{WASTE_LIST_LABEL[wasteName]}</span>
 
           <img src="/icons/drop-arrow.svg" alt="drop-arrow" />
         </RecommendCompany>
