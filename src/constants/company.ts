@@ -39,11 +39,11 @@ export const COMPANY: Record<string, Company> = {
     img: '/images/company/gds-img.png',
     location: 'Central Seoul',
     time: 'Within 5 days',
-    rating: '4.5',
+    rating: '4.3',
     desc: 'Reliable service but a bit on the pricier side.',
     tag: 'Standard',
     reviewCount: 1000,
-    price: 100000,
+    price: 130000,
     images: [],
   },
   mercury: {
@@ -57,7 +57,7 @@ export const COMPANY: Record<string, Company> = {
     desc: 'Good service, but processing time was longer than expected.',
     tag: 'Slightly above',
     reviewCount: 1000,
-    price: 100000,
+    price: 200000,
     images: [],
   },
   quickDispose: {
@@ -71,7 +71,7 @@ export const COMPANY: Record<string, Company> = {
     desc: 'Service was okay, but there were some delays.',
     tag: '10% above ',
     reviewCount: 1000,
-    price: 100000,
+    price: 250000,
     images: [],
   },
   safeMercuryDisposals: {
@@ -85,7 +85,7 @@ export const COMPANY: Record<string, Company> = {
     desc: 'Name is misleading. Took longer than expected.',
     tag: '15% above',
     reviewCount: 1000,
-    price: 100000,
+    price: 300000,
     images: [],
   },
 };
