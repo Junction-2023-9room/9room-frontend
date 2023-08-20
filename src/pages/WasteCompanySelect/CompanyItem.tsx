@@ -62,7 +62,6 @@ const ItemImageContainer = styled.div<{
   position: relative;
   overflow: hidden;
   border-radius: 14px;
-  background: #444;
 
   & > div {
     position: absolute;

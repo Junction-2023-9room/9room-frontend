@@ -51,7 +51,7 @@ const Index = () => {
         animate="animate"
         exit="exit"
       >
-        <CompanyDetailTab />
+        <CompanyDetailTab companyName={id as string} />
       </motion.div>
 
       <BottomButton text="Request Disposal" handler={handleOnClickMove} />
