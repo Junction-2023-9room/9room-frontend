@@ -7,7 +7,7 @@ const TitleHeader = () => {
 
   const onClick = () => {
     fireToast({
-      content: 'In ready.',
+      content: 'Preparing...',
     });
   };
   return (

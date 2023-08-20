@@ -24,7 +24,7 @@ const Index = () => {
 
   const onClick = () => {
     fireToast({
-      content: 'In ready.',
+      content: 'Preparing...',
     });
   };
 

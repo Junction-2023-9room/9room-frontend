@@ -11,7 +11,7 @@ const Info = ({ companyName }: { companyName: string }) => {
 
   const onClick = () => {
     fireToast({
-      content: 'In ready.',
+      content: 'Preparing...',
     });
   };
 
