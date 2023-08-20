@@ -38,7 +38,7 @@ const BottomContainer = styled.div`
 
   & > button {
     cursor: pointer;
-    max-width: calc(390px - 40px);
+    max-width: calc(475px - 40px);
     width: calc(100% - 40px);
     padding: 0 20px;
     border: none;

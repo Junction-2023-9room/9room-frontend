@@ -7,7 +7,10 @@ import { LOCAL_STORAGE_KEY } from '../../constants/storage';
 import { WASTE_LIST_LABEL } from '../../constants/waste';
 import { useScrollTop } from '../../libs/hooks/useScrollTop';
 import WasteDetail from '../WasteDescription/WasteDetail';
+import Landing from './Landing';
 import UpcyclingDetail from './UpcyclingDetail';
+
+const PATH_NAME = ['lead-acid', 'mercury-thermo'];
 
 const Index = () => {
   useScrollTop();
@@ -24,8 +27,14 @@ const Index = () => {
   return (
     <Container>
       <NavHeader title={WASTE_LIST_LABEL[wasteName]} />
-      {wasteName === 'lead-acid' ? <UpcyclingDetail /> : <WasteDetail />}
-      <BottomButton text={'View more'} handler={handleOnClickMove} />
+      {PATH_NAME.includes(wasteName) ? (
+        <>
+          {wasteName === 'lead-acid' ? <UpcyclingDetail /> : <WasteDetail />}
+          <BottomButton text={'View more'} handler={handleOnClickMove} />
+        </>
+      ) : (
+        <Landing />
+      )}
     </Container>
   );
 };
